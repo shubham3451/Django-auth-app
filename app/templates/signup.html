@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}SignUP{% endblock %}
+
+{% block content %}
+    <form action="" method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit">submit</button>
+    </form>
+    {% if messages %}
+    <div class="messages">
+        {% for message in messages %}
+            <div class="message {% if message.tags %}{{ message.tags }}{% endif %}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}
+
+    <p>Already have an Account <a href={% url "login" %}>Login here</a></p>
+    <p>Forgot password? <a href={% url "password_reset" %}>Reset your Password here</a></p>
+
+{% endblock %}

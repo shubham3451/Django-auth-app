@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Document{% endblock %}</title>
+    
+    <!-- External Google Fonts for better typography -->
+    {% comment %} <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"> {% endcomment %}
+
+    <style>
+        /* Global Styling */
+        body {
+            background-color: #121212;  /* Deep dark background */
+            color: #EAEAEA;  /* Light text color */
+            font-family: 'Poppins', sans-serif;  /* Modern font */
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* Centered Container */
+        .container {
+            max-width: 700px;  /* Set maximum width for a more centered layout */
+            margin: 0 auto;    /* Center the container */
+            padding: 20px;
+            width: 100%;       /* Make container fluid */
+        }
+
+        /* Header Section */
+        header {
+            background-color: #1F1F1F; /* Dark header background */
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        header h1 {
+            color: #FFFFFF;  /* White text for header */
+            font-size: 2rem;
+            margin: 0;
+        }
+
+        /* Content Section */
+        .content {
+            background-color: #1A1A1A;  /* Slightly darker content container */
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Link Styles */
+        a {
+            color: #1E90FF;  /* Light blue links */
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Button Styles */
+        .btn {
+            background-color: #1E90FF;
+            color: #FFFFFF;
+            border: none;
+            padding: 12px 20px;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #176cbf;
+        }
+
+        /* Input & Textarea Styles */
+        input[type="text"], input[type="password"], input[type="email"], textarea {
+            background-color: #2B2B2B;  /* Darker input fields */
+            color: #EAEAEA;
+            border: 1px solid #444444;
+            padding: 12px;
+            border-radius: 5px;
+            width: 100%;
+            font-size: 1rem;
+            margin: 10px 0;
+        }
+
+        input[type="submit"], button {
+            background-color: #1E90FF;
+            color: #FFFFFF;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover, button:hover {
+            background-color: #176cbf;
+        }
+
+        /* Footer Section */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #1F1F1F;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            margin-top: 30px;
+        }
+
+        footer p {
+            color: #A9A9A9;
+            font-size: 1rem;
+            margin: 0;
+        }
+
+        .message {
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .success {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .error {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        .info {
+            background-color: #17a2b8;
+            color: white;
+        }
+
+        .warning {
+            background-color: #ffc107;
+            color: black;
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            .container {
+                max-width: 95%;  /* Use 95% width for tablets and smaller devices */
+                padding: 15px;
+            }
+
+            header h1 {
+                font-size: 1.8rem;  /* Reduce header font size */
+            }
+
+            .content {
+                padding: 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                max-width: 95%;  /* Further adjust for small phones */
+                padding: 10px;
+            }
+
+            header h1 {
+                font-size: 1.6rem;  /* Smaller header font for mobile devices */
+            }
+
+            .content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Optional header section -->
+        <header>
+            <h1>{% block header %}welcome {{user.username}}{% endblock %}</h1>
+        </header>
+
+        <!-- Main content section -->
+        <div class="content">
+            {% block content %}{% endblock %}
+        </div>
+
+    </div>
+</body>
+</html>
+

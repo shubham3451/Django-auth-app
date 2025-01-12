@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+    <p>
+        hiii {{user.username}}
+    </p>
+
+    
+    <a href={% url "changepassword" %}>change password</a>
+    <hr>
+    <a href={% url "profile" %}>profile</a>
+
+{% endblock %}
